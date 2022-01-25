@@ -9,7 +9,7 @@ before_install:
 script:
   - docker run -e CI=true ayomide/docker-react npm run test
 
-  deploy:
+deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
   app: "docker-react"
@@ -17,7 +17,6 @@ script:
   bucket_name: elasticbeanstalk-us-east-1-473186070564
   bucket_path: "docker-react"
   on:
-    branch: master
+    branch: main
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: 
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key:  $AWS_SECRET_KEY
